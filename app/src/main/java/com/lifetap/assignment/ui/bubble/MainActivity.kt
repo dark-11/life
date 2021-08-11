@@ -10,7 +10,9 @@ import com.lifetap.assignment.ui.bubble.item.ItemViewModelDelegate
 
 import javax.inject.Inject
 
-
+/**
+ * Entry point to the app.
+ */
 class MainActivity : BaseActivity(), ItemViewModelDelegate {
     private lateinit var binding: ActivityMainBinding
 

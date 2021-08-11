@@ -6,6 +6,9 @@ import com.lifetap.assignment.base.BaseViewModel
 import com.lifetap.assignment.utils.CircleAnimation
 import com.lifetap.assignment.utils.CircleView
 
+/**
+ * ViewModel to handle the Item ViewModel of RecyclerView
+ */
 
 class ManageBubbleItemViewModel : BaseViewModel() {
     lateinit var delegate: ItemViewModelDelegate

@@ -4,7 +4,9 @@ import com.lifetap.assignment.di.component.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
-
+/**
+ * Following MVVM pattern, created the base classes - base application class having DI
+ */
 class BaseApplication : DaggerApplication() {
 
 

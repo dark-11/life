@@ -3,6 +3,9 @@ package com.lifetap.assignment.utils
 import android.view.animation.Animation
 import android.view.animation.Transformation
 
+/**
+ * Animation class to move the paint from oldAngle to newAngle
+ */
 class CircleAnimation(circle: CircleView, newAngle: Int) : Animation() {
     private val circle: CircleView
     private val oldAngle: Float

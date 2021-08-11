@@ -9,7 +9,9 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import java.util.*
 
-
+/**
+ * Creating circle view to show the circular white stroked views
+ */
 class CircleView : AppCompatImageView {
     private var mBasePaint: Paint? = null
     private var mDegreesPaint: Paint? = null

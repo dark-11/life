@@ -5,6 +5,9 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.lifetap.assignment.R
 
+/**
+ * Image Resource adapter
+ */
 @BindingAdapter("android:src")
 fun setImageViewResource(imageView: ImageView, resource: Int) {
     try {

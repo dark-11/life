@@ -12,6 +12,9 @@ import com.lifetap.assignment.ui.bubble.item.ManageBubbleItemViewModel
 import me.tatarka.bindingcollectionadapter2.itembindings.OnItemBindClass
 import javax.inject.Inject
 
+/**
+ * ViewModel class handling the logic to inflate the UI
+ */
 class MainActivityViewModel @Inject constructor() : BaseViewModel() {
     var bubbleItemBinding = OnItemBindClass<Any>()
         .map(ManageBubbleItemViewModel::class.java, BR.viewModel, R.layout.row_item_image)!!

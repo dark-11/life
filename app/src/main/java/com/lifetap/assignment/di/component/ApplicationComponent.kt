@@ -8,7 +8,9 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import javax.inject.Singleton
-
+/**
+ * Following MVVM pattern, created the application component for DI
+ */
 @Singleton
 @Component(
     modules = arrayOf(
