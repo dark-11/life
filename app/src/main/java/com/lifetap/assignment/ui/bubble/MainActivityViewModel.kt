@@ -20,13 +20,15 @@ class MainActivityViewModel @Inject constructor() : BaseViewModel() {
     lateinit var delegate: ItemViewModelDelegate
 
     fun setValues() {
-        for (i in 0..100) {
-            Log.d("ran $i","ran $i")
+        bubbleItems.clear()
+        bubbleItemList.clear()
+        for (i in 0..1000) {
+
             val itemViewModel = ManageBubbleItemViewModel()
             itemViewModel.delegate = delegate
-              bubbleItems.add(itemViewModel)
+            bubbleItems.add(itemViewModel)
         }
-            bubbleItemList.addAll(bubbleItems)
+        bubbleItemList.addAll(bubbleItems)
     }
 
 
