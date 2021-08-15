@@ -34,7 +34,7 @@ class MainActivity : BaseActivity(), ItemViewModelDelegate {
             }
 //Can be used to show some activity after click
     override fun onImageClick() {
-        Toast.makeText(this,"clicked",Toast.LENGTH_SHORT).show()
+
     }
 
     override val ctx: Context
