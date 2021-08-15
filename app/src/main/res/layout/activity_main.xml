@@ -14,43 +14,21 @@
 
 
     </data>
-
-    <androidx.core.widget.NestedScrollView
-
+    <LinearLayout
+        android:orientation="horizontal"
+       android:background="@color/black"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLifeTap"
+            android:orientation="horizontal"
+            app:itemBinding="@{viewModel.bubbleItemBinding}"
+            app:items="@{viewModel.bubbleItemList}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/black"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"/>
 
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:background="@color/black"
-                android:layout_height="match_parent">
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_products_view"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:itemBinding="@{viewModel.bubbleItemBinding}"
-                    app:items="@{viewModel.bubbleItemList}"
-
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </layout>

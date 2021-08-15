@@ -1,10 +1,13 @@
 package com.lifetap.assignment.ui.bubble.item
 
 
+import android.content.Context
+import android.graphics.Color
 import android.view.View
+import androidx.databinding.ObservableInt
 import com.lifetap.assignment.base.BaseViewModel
+import com.lifetap.assignment.utils.Border
 import com.lifetap.assignment.utils.CircleAnimation
-import com.lifetap.assignment.utils.CircleView
 
 /**
  * ViewModel to handle the Item ViewModel of RecyclerView
@@ -12,11 +15,18 @@ import com.lifetap.assignment.utils.CircleView
 
 class ManageBubbleItemViewModel : BaseViewModel() {
     lateinit var delegate: ItemViewModelDelegate
-    fun onImageClick(view: View) {
-        val circle = view as? CircleView
+    fun init() {
+        var border = Border(delegate.ctx)
+        border!!.loaded = false
+    }
 
-        val animation = CircleAnimation(circle!!, 360)
+
+    fun onImageClick(view: View) {
+        val border = view as? Border
+        border!!.loaded = true
+        val animation = CircleAnimation(border!!, 360)
         animation.duration = 1000
-        circle.startAnimation(animation)
+        border!!.startAnimation(animation)
+        delegate.onImageClick()
     }
 }

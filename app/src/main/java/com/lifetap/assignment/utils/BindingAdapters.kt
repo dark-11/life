@@ -1,6 +1,7 @@
 package com.lifetap.assignment.utils
 
 import android.content.res.Resources
+import android.graphics.Color
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.lifetap.assignment.R

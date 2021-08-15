@@ -88,20 +88,12 @@ class CircleView : AppCompatImageView {
                 )
             }
 
-
-            canvas.drawCircle(
-                centerX.toFloat(),
-                centerY.toFloat(),
-                (radius - STROKE_WIDTH / 2).toFloat(), mBasePaint!!
-            )
-
-            canvas.drawArc(mRect!!, 90f, angle, false, mDegreesPaint!!)
-
             canvas.drawCircle(
                 centerX.toFloat(),
                 centerY.toFloat(),
                 (radius - STROKE_WIDTH).toFloat(), mCenterPaint!!
             )
+
         }
     }
 

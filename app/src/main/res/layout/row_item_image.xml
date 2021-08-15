@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
-        <import type=
-            "android.view.View" />
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
             type="com.lifetap.assignment.ui.bubble.item.ManageBubbleItemViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content"
-        android:background="@color/black">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content"
-        android:background="@color/black">
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content">
 
-        <com.lifetap.assignment.utils.CircleView
-            android:id="@+id/ivBubble"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@color/black"
-            android:onClick="@{(view)->viewModel.onImageClick(ivBubble)}"
-            android:scaleType="fitCenter"
-            android:src="@drawable/dummy"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            <com.lifetap.assignment.utils.CircleView
+                android:id="@+id/cvDummy"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_centerInParent="true"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/dummy" />
+
+            <com.lifetap.assignment.utils.Border
+                android:id="@+id/borderView"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerInParent="true"
+                android:onClick="@{(view)->viewModel.onImageClick(borderView)}"
+                app:portion_spacing="4dp"
+                app:portion_width="1dp"
+                app:portions_count="1" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
