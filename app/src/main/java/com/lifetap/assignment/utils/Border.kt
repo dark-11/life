@@ -33,19 +33,19 @@ class Border : View {
 
     private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
         val typedArray =
-            context.obtainStyledAttributes(attrs, R.styleable.CircularStatusView, defStyle, 0)
+            context.obtainStyledAttributes(attrs, R.styleable.CircularView, defStyle, 0)
         if (typedArray != null) {
-            color = typedArray.getColor(R.styleable.CircularStatusView_portion_color, DEFAULT_COLOR)
+            color = typedArray.getColor(R.styleable.CircularView_color, DEFAULT_COLOR)
             spaceWidth = typedArray.getDimensionPixelSize(
-                R.styleable.CircularStatusView_portion_width,
+                R.styleable.CircularView_width,
                 spaceWidth.toInt()
             ).toFloat()
             spacing = typedArray.getDimensionPixelSize(
-                R.styleable.CircularStatusView_portion_spacing,
+                R.styleable.CircularView_spacing,
                 spacing
             )
             count =
-                typedArray.getInteger(R.styleable.CircularStatusView_portions_count, count.toInt())
+                typedArray.getInteger(R.styleable.CircularView_count, count.toInt())
                     .toFloat()
             typedArray.recycle()
         }
@@ -164,4 +164,4 @@ class Border : View {
     }
 
 
-    }
+}
