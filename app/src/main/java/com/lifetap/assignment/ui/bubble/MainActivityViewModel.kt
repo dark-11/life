@@ -1,15 +1,19 @@
 package com.lifetap.assignment.ui.bubble
 
-import android.content.ClipData.Item
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
+import androidx.databinding.ViewDataBinding
 import com.lifetap.assignment.BR
 import com.lifetap.assignment.R
 import com.lifetap.assignment.base.BaseViewModel
-import com.lifetap.assignment.databinding.ActivityMainBinding
 import com.lifetap.assignment.ui.bubble.item.ItemViewModelDelegate
 import com.lifetap.assignment.ui.bubble.item.ManageBubbleItemViewModel
-import me.tatarka.bindingcollectionadapter2.ItemBinding
+import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter
+import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapters
 import me.tatarka.bindingcollectionadapter2.itembindings.OnItemBindClass
 import javax.inject.Inject
 
@@ -24,12 +28,13 @@ class MainActivityViewModel @Inject constructor() : BaseViewModel() {
     private var bubbleItems = ArrayList<ManageBubbleItemViewModel>()
     lateinit var delegate: ItemViewModelDelegate
 
+
     fun setValues() {
         bubbleItems.clear()
         bubbleItemList.clear()
 
         for (i in 0..15) {
-                       val itemViewModel = ManageBubbleItemViewModel()
+            val itemViewModel = ManageBubbleItemViewModel()
             itemViewModel.delegate = delegate
             itemViewModel.init()
 
@@ -40,8 +45,31 @@ class MainActivityViewModel @Inject constructor() : BaseViewModel() {
         bubbleItemList.addAll(bubbleItems)
     }
 
+    class LifeAdapter<T> : BindingRecyclerViewAdapter<T>() {
+        override fun onCreateBinding(
+            inflater: LayoutInflater?,
+            @LayoutRes layoutId: Int,
+            viewGroup: ViewGroup?
+        ): ViewDataBinding? {
+            val binding: ViewDataBinding = super.onCreateBinding(inflater, layoutId, viewGroup)
+            Log.d("TAG", "created binding: $binding")
+            return binding
+        }
+
+        override fun onBindBinding(
+            binding: ViewDataBinding,
+            bindingVariable: Int,
+            @LayoutRes layoutId: Int,
+            position: Int,
+            item: T
+        ) {
+            super.onBindBinding(binding, bindingVariable, layoutId, position, item)
+            Log.d("TAG", "bound binding: $binding at position: $position")
+        }
+    }
 
 }
+
 
 interface OnItemClickListener {
     fun onItemClick(item: String?)

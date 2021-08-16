@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lifetap.assignment.R
+import com.lifetap.assignment.adapter.LifeAdapter
 import com.lifetap.assignment.base.BaseActivity
 import com.lifetap.assignment.databinding.ActivityMainBinding
 import com.lifetap.assignment.ui.bubble.item.ItemViewModelDelegate
@@ -18,6 +19,7 @@ import javax.inject.Inject
  */
 class MainActivity : BaseActivity(), ItemViewModelDelegate {
     private lateinit var binding: ActivityMainBinding
+
     @Inject
     lateinit var viewModel: MainActivityViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,20 +27,15 @@ class MainActivity : BaseActivity(), ItemViewModelDelegate {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewModel = viewModel
         viewModel.delegate = this
-        viewModel.setValues()
+        binding.rvLifeTap.adapter = LifeAdapter()
 
     }
 
-    override fun onResume() {
-        super.onResume()
-            }
-//Can be used to show some activity after click
     override fun onImageClick() {
 
     }
 
     override val ctx: Context
         get() = this@MainActivity
-
 
 }
